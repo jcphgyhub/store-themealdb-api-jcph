@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+<div class="container pt-4">
+    <div class="row pt-4">
+      <div class="col-12 d-md-flex justify-content-center  pt-4">
+        <p class="display-4  pt-4">Meals</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 d-flex flex-row justify-content-between">
+        <form>
+          <h4>Filtrar</h4>
+          <mat-form-field  class="border border-secondary bg-secondary" appearance="fill">
+            <mat-label>Filtrar</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="filtro" (selectionChange)="selected($event)">
+              <mat-option *ngFor="let filtro of filtros" [value]="filtro.value">
+                {{ filtro.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p> Selected filtro: {{ selectedValue }} </p>
+        </form>
+          <form>
+            <h4>Categoria</h4>
+            <mat-form-field  class="border border-secondary bg-secondary" appearance="fill">
+              <mat-label>Categoria</mat-label>
+              <mat-select [disabled]="categoriasSelect.value" [(ngModel)]="categoriaElegida" name="categoria" (selectionChange)="selectCategory($event)">
+                <mat-option *ngFor="let categoria of categorias" [value]="categoria.strCategory">
+                  {{ categoria.strCategory }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p> Selected filtro: {{ categoriaElegida }} </p>
+          </form>
+    
+          <form>
+            <h4>Area</h4>
+            <mat-form-field  class="border border-secondary bg-secondary" appearance="fill">
+              <mat-label>Area</mat-label>
+              <mat-select [disabled]="areasSelect.value" [(ngModel)]="areaElegida" name="area" (selectionChange)="selectArea($event)">
+                <mat-option *ngFor="let area of areas" [value]="area.strArea">
+                  {{ area.strArea }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p> Selected filtro: {{ areaElegida }} </p>
+          </form>
+    
+          <form >
+            <h4>Ingrediente</h4>
+            <mat-form-field class="border border-secondary bg-secondary" appearance="fill">
+              <mat-label>Ingrediente</mat-label>
+              <mat-select [disabled]="ingredientesSelect.value" [(ngModel)]="ingredienteElegido" name="ingredient" (selectionChange)="selectIngredient($event)">
+                <mat-option *ngFor="let ingredient of ingredientes" [value]="ingredient.strIngredient">
+                  {{ ingredient.strIngredient }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p> Selected filtro: {{ ingredienteElegido }} </p>
+          </form>
+      </div>
+    </div>
+
+    <hr>
+    <div class="d-flex flex-column">
+      <app-meal-item [meal]="foo" *ngFor="let foo of meals"></app-meal-item>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <mat-paginator [length]="this.meals.length"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page"
+        (page)="pageChanged($event)"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+</div>

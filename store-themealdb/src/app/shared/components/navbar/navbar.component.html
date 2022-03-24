@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">Meals</a>
+        <a class="navbar-brand">{{ username }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="btn btn-dark border border-dark rounded-pill" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item [routerLink]="['/ingredients']">Ingredients</button>
+                        <button mat-menu-item [routerLink]="['/meals']">Meals</button>
+                        <button mat-menu-item [routerLink]="['/profile']">Profile</button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

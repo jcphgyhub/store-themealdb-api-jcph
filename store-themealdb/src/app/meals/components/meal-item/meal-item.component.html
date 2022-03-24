@@ -1,0 +1,21 @@
+<section class="row border-bottom pb-2">
+    <div class="col-3 pt-2">
+        <img [src]="meal.strMealThumb" [alt]="meal.strMeal" class="img img-fluid offset-sm-2" width="130px" height="130px">
+    </div>
+    <div class="col-7 pt-4">
+        <p class="fw-bold">
+            {{ meal.idMeal }}
+        </p>
+        <p class="">
+            {{ meal.strMeal | uppercase }}
+        </p>
+        <p class="fst-italic">
+            {{ meal.strCategory | titlecase}}
+        </p>
+    </div>
+    <div class="col-2">
+        <button type="button" class="btn btn-outline-dark" (click)="detail(meal.idMeal)"> 
+            Ver m&aacute;s..
+        </button>
+    </div>
+</section>

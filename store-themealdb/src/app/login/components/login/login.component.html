@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row d-flex flex-column-reverse flex-md-row align-items-center">
+        <div class="bg-image col-12 col-md-6 imagebg"></div>
+        <div class="col-12 col-md-6 pt-4 d-flex flex-column">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <p class="h1">Iniciar Sesi&oacute;n</p>
+                </div>
+            </div>
+            <form action="" class="row">
+                <div class="form-floating my-2 col-12 col-md-10 offset-0 offset-md-1">
+                    <input type="text" name="user" #user="ngModel" [(ngModel)]='Obj.user'
+                    class="form-control" id="User" placeholder="Usuario">
+                    <label class="mx-2" for="User">Usuario</label>
+                </div>
+                <div class="form-floating my-2 col-12 col-md-10 offset-0 offset-md-1">
+                    <input type="password" name="password" #password="ngModel" [(ngModel)]='Obj.password'
+                    class="form-control" id="Password" placeholder="Password">
+                    <label class="mx-2" for="Password">Contrase&ntilde;a</label>
+                </div>
+                <div class="my-2 col-12 col-md-6 offset-0 offset-md-3 alert alert-danger" *ngIf="loading != true" role="alert">
+                    <p>{{ errorMessage.message }}</p>
+                    <p>{{ errorMessage.detail }}</p>
+                </div>
+                <div class="my-2 col-12 col-md-10 offset-0 offset-md-1 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary border rounded-pill  px-4" (click)="iniciarSesion(Obj)">Iniciar sesi&oacute;n</button>
+                </div>
+            </form>
+        </div>
+    </div>    
+</div>
