@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="d-flex justify-content-around bg-light py-4 pr-4  container-fluid">
+  <button class="btn btn-link py-0" (click)="backClicked()" >
+    &#60;
+    Volver
+  </button>
+  <p class="animated fadeIn display-4 bold text-center">{{ idIngredient | uppercase }}</p>   
+</div>
+<div class="container">
+    <div *ngIf="show" class="alert alert-danger" role="alert">
+      {{ message }}
+    </div>
+    <div class="row">
+        <div class="col-12" >
+            <app-meal-item *ngFor="let meal of meals" [meal]="meal"></app-meal-item>
+        </div>
+    </div>
+</div>

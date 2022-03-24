@@ -1,1 +1,15 @@
 <app-navbar></app-navbar>
+<div class="container">
+
+    <div class="row pt-4">
+        <div class="col-12 d-md-flex justify-content-center flex-column pt-4">
+          <p class="display-4  pt-4">Ingredientes Populares</p>
+          <p class="pt-4">Click en el nombre del ingrediente para ver platillos que lo contienen</p>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-12" >
+            <app-ingredient-item *ngFor="let ingre of ingredients" [ingre]="ingre"></app-ingredient-item>
+        </div>
+    </div>
+</div>

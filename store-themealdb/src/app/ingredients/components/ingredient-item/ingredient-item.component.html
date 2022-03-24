@@ -1,1 +1,11 @@
-<p>ingredient-item works!</p>
+<section class="row border-bottom pb-2">
+    <div class="col-12 pt-2 d-flex flex-row justify-content-between">
+        <p class="fw-bold">
+            {{ ingre.idIngredient }}
+        </p>
+        <button mat-button color="primary" class="btn btn-info" (click)="ingrediente(ingre.strIngredient)">{{ ingre.strIngredient | uppercase }}</button>
+        <p class="fst-italic">
+            {{ ingre.strType | titlecase }}
+        </p>
+    </div>
+</section>

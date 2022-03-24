@@ -16,13 +16,11 @@ export class MealComponent implements OnInit {
     private router:Router, private _mealService: MealService) { 
     this.activatedRoute.paramMap.subscribe( params =>{
       this.idMeal = params.get('idMeal');
-      console.log(this.idMeal);
       this._mealService.getMealById(this.idMeal)
       .subscribe(
         (response) => {
             if (response["meals"]) {
               this.meal = response["meals"][0];
-              console.log(this.meal);
             }});
     });
     }
